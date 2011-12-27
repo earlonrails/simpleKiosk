@@ -14,15 +14,13 @@ end
 # get all users
 get '/users/' do
   col_users = db.collection('users')
-  all_users = col_users.find().collect{|u| u.to_json)
+  all_users = col_users.find().collect{|u| u.to_json}
   status 200
   body all_users
 end
 
 # get a user
 get '/users/:name' do
-  puts "hey"
-  puts "#{params[:name].class} #{params[:name].inspect}"
   col_users = db.collection('users')
   my_usr = col_users.find({'userName' => params[:name]}).collect{|u| u.to_json}
   status 200
@@ -31,12 +29,14 @@ end
 
 # update a user
 post '/users/:name?*/' do
- params[:nam]
- ro = JSON.parse(request.body.string)
+ params[:name]
+ # ro = JSON.parse(request.query_string)
+ puts request.body.string
+ puts request.query_string
  puts params.inspect
- will_rtn = {'userCreate' => 'true'}  
- status 200
- body will_rtn
+ # will_rtn = {'userCreate' => 'true'}  
+ # status 200
+ # body will_rtn
 end
 
 # create a user
