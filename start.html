@@ -1,33 +1,43 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
-<script src="AIRAliases.js"></script>
+<script src="lib/AIRAliases.js"></script>
 <script src="lib/util.js"></script>
+<script src="lib/btn.js"></script>
+<link rel="stylesheet" type="text/css" href="lib/style.css" />
 <script>
-var kioskSession = {};
+var kiosk = {};
 
 function initSession() {
-	kioskSession = { 
-   		mongo : ,
-		db : mongo.db("users"),
-		userName : "",
-		userFavoriteColor : "",
-		userPhoneNumber : "",
-		userData : {},
-		send : function(self.userData){}
+  var parentDoc = document;
+  var appFrame = parentDoc.getElementById('appFrame');
+	kiosk = { 
+    session   : {},
+   	mongo     : { host : "localhost", port : "27047"},
+		db        : "users",
+		user      : {  Name : "",
+                   FavoriteColor : "",
+                   PhoneNumber : ""
+                },
+    self      : this,
+    Btn       : Btn,
+    parentDoc : parentDoc,
+    Util      : new Util(appFrame),
+		send      : function(){
+                  self.userData;
+                }
 	};
 }
 
 function setup(){
 	initSession();
-	window.open("welcome.html", "appFrame");
+	kiosk.Util.linkTo("welcome.html");
 }
-// start it
-setup();
+
 </script>
 <title>Start</title>
 </head>
-<body>
+<body onload="setup()">
 	<iframe name="appFrame" id="appFrame" border="0" style="background-color:transparent" frameborder="0" width="1280" height="1024">
 		
 	</iframe>

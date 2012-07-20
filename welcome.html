@@ -1,95 +1,25 @@
 <html>
 <link rel="stylesheet" type="text/css" href="lib/style.css" />
 <meta http-equiv="Page-Exit" content="blendTrans(Duration=1)"/>
+<script src="lib/jquery.min.js"></script>
 <script>
 var step; 
-var stepEles;
-var iElem;
-var kioskSession = parent.kioskSession;
+var stepEles = $('.step');
+var kiosk = parent.kiosk;
+var dataArray;
 
 function setup() {
-	hLocCon = new parent.air.LocalConnection();
-	hLocCon.client = {
-	   grabImage : function(bytes) {
-		snapShot = bytes;
-		capturedFace();
-	   }
-	};
-	hLocCon.allowDomain("*");
-	hLocCon.connect("snapShotChannel");
-
-	iElem = document.createElement("iframe");
-	iElem.setAttribute("width", "1");
-	iElem.setAttribute("height", "1");
-	iElem.setAttribute("frameborder", "0");
-	iElem.setAttribute("border", "0");
-	iElem.setAttribute("application", "yes");
-	iElem.setAttribute("src", "about:blank");
-	$('frameBucket').appendChild(iElem);
-	step = 1;
-	stepEles = [$("step1"),
-				   $("step2"),
-				   $("step3")];
-	doStep(step);
-	
-	snapShot.toString()
-
 }
-
-
-function leftFoot(ele){
-	for(var i=0;i<stepEles.length-1;i++){
-		if (ele == stepEles[i]){
-			stepEles[i].style.display = 'block';
-		}else{
-			stepEles[i].style.display = 'none';	
-		}
-	}
-}
-
-function doStep(num){
-	switch(num){
-		case 1:
-			leftFoot(stepEles[0]);
-			step = 2;
-			break;
-		case 2:
-			leftFoot(stepEles[1]);
-			step = 3;
-			break;
-		case 3:
-			leftFoot(stepEles[2]);
-			step = 4;
-			break;
-		case 4:
-			leftFoot(stepEles[3]);
-			break;
-		default:
-			leftFoot(stepEles[4]);
-	}
-}
-</script>
-<body>
-	<div id="step1">
+ </script>
+<body onclick="kiosk.Util.linkTo('user_list.html')">
+	<div class="step" >
 		<h3 style="left:45px;top:730px;width:560px;color:#666">
-		Welcome!
+		  Welcome!
 		</h3>
 		<p>
 			Touch to continue.
 		</p>
-	</div>
-	
-	<div id="step2">
-		<object class="abs" style="top:300px;left:200px;z-index:2;" width="400" height="375" type="application/x-shockwave-flash">
-			<param name="movie" value="app:/lib/my_face.swf" >
-			<param name="allowScriptAccess" value="always" />
-		</object>
-	</div>
-	
-	<div id="step3">
-	
-	</div>
-	
+	</div>	
 </body>
 
 </html>

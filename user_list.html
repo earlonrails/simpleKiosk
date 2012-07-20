@@ -1,0 +1,33 @@
+<html>
+<link rel="stylesheet" type="text/css" href="lib/style.css" />
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=1)"/>
+<script src="lib/jquery.min.js"></script>
+<script>
+var step; 
+var stepEles = $('.step');
+var kiosk = parent.kiosk;
+var dataArray;
+
+function setup() {
+  var user_div = $('#user_list');
+  user_div.append("<li>User Name: test Favorite Color: test Phone Number: test</li>");
+  $.ajax({ url: 'http://localhost:4567/users/', success:function(data){
+    $.each(data, function(index, value){
+      user_div.append("<li>User Name: " + value["userName"] + " Favorite Color: " + value["userFavoriteColor"] + " Phone Number: " + value["userPhoneNumber"] + "</li>");
+    });
+    doStep(step);
+  }});
+}
+ </script>
+<body onload="setup()">
+  <div class="step">
+    <h3 style="left:45px;top:730px;width:560px;color:#666">
+      User list.
+    </h3>
+    <!-- The list is populated here via the callback from jx.load in the setup function -->
+    <ul id="user_list">
+    </ul>
+  </div> 
+</body>
+
+</html>

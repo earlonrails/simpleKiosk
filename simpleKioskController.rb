@@ -8,19 +8,24 @@ db = Mongo::Connection.new("localhost", 27047).db("foo")
 
 # test sinatra
 get '/' do
-  'Hello world!'
+  'Simple Kiosk App'
 end
  
 # get all users
 get '/users/' do
+  content_type :json
+  puts "I get all users !!!"
   col_users = db.collection('users')
-  all_users = col_users.find().collect{|u| u.to_json}
+  all_users = col_users.find().collect{|u| u }
   status 200
-  body all_users
+  puts "inspect all users #{all_users.inspect}"
+  all_users.to_json
 end
 
-# get a user
+# get a user2
 get '/users/:name' do
+  content_type :json
+  puts "I am in this name function for some reason"
   col_users = db.collection('users')
   my_usr = col_users.find({'userName' => params[:name]}).collect{|u| u.to_json}
   status 200
@@ -29,6 +34,8 @@ end
 
 # update a user
 post '/users/:name?*/' do
+ content_type :json
+ puts "I am in update users !!!"
  params[:name]
  # ro = JSON.parse(request.query_string)
  puts request.body.string
@@ -41,10 +48,11 @@ end
 
 # create a user
 post '/users/create/*' do
+  content_type :json
   col_users = db.collection('users')
   ro = JSON.parse(request.body.string)
   col_users.insert(ro)
-  will_rtn = {'userCreate' => 'true'} 
+  will_rtn = { 'userCreate' => 'true' } 
   status 200
   body will_rtn
 end
