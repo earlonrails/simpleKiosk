@@ -1,0 +1,28 @@
+div.blueButton {
+  width: 350px;
+  height:90px;
+  border:2px solid #000;
+  -webkit-border-radius: 10px;
+  -khtml-user-select: none;
+  -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.32, rgb(103,167,116)),
+    color-stop(0.66, rgb(134,201,151))
+  );
+}
+
+div.blueButton div.txt {
+  font-family: Arial,Helvetica,Sans-Serif;
+  font-weight: bold;
+  position: relative;
+  top:10px;
+  text-shadow: rgba(0,0,0,0.5) 5px 5px 5px;
+  -webkit-text-fill-color: #FFF;
+  font-size: 32px;
+  color: #FFF;
+  text-align: center;
+  white-space: pre;
+}

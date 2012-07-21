@@ -18,7 +18,7 @@
 	<!-- Settings for the application's initial window. Required. -->
 	<initialWindow>
 		<!-- The main HTML file of the application. Required. -->
-		<content>start.html</content>
+		<content>app/views/start.html</content>
 		
 		<!-- The title of the main window. Optional. -->
 		<title>Kiosk</title>

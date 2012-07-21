@@ -1,0 +1,23 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../../lib/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+<meta http-equiv="Page-Exit" content="blendTrans(Duration=1)"/>
+<script src="../../lib/jquery.min.js"></script>
+<script>
+var kiosk = parent.kiosk;
+
+function setup() {
+  $('.step').append(kiosk.Btn.create("Touch to continue.","blueButton",
+    { click : "kiosk.Util.linkTo('user_list.html')" }
+  ));
+}
+ </script>
+<body onload="setup()">
+	<div class="step" >
+		<h3 style="left:45px;top:730px;width:560px;color:#666">
+		  Welcome!
+		</h3>
+	</div>
+</body>
+
+</html>
