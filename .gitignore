@@ -1,0 +1,3 @@
+.rspec
+data/db/mongod.lock
+data/db/journal/*
