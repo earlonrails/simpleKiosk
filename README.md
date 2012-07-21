@@ -1,4 +1,3 @@
-# Hello Dr. Krauss!
 # Simple Kiosk a simple Adobe Air app for creating touch screen interfaces
 
 ## Getting Started w/ Homebrew
