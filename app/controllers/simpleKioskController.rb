@@ -14,18 +14,15 @@ end
 # get all users
 get '/users/' do
   content_type :json
-  puts "I get all users !!!"
   col_users = db.collection('users')
   all_users = col_users.find().collect{|u| u }
   status 200
-  puts "inspect all users #{all_users.inspect}"
   all_users.to_json
 end
 
 # get a user2
 get '/users/:name' do
   content_type :json
-  puts "I am in this name function for some reason"
   col_users = db.collection('users')
   my_usr = col_users.find({'userName' => params[:name]}).collect{|u| u.to_json}
   status 200
@@ -35,15 +32,7 @@ end
 # update a user
 post '/users/:name?*/' do
  content_type :json
- puts "I am in update users !!!"
  params[:name]
- # ro = JSON.parse(request.query_string)
- puts request.body.string
- puts request.query_string
- puts params.inspect
- # will_rtn = {'userCreate' => 'true'}  
- # status 200
- # body will_rtn
 end
 
 # create a user
