@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://ns.adobe.com/air/application/1.0">
+  <!-- The application identifier string, unique to this application. Required. -->
+  <id>com.simple.kiosk.spec</id>
+
+  <!-- Used as the filename for the application. Required. -->
+  <filename>simpleKiosk</filename>
+
+  <!-- The name that is displayed in the AIR application installer. Optional. -->
+  <name>simpleKiosk</name>
+
+  <!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required. -->
+  <version>1.0</version>
+
+  <!-- Description, displayed in the AIR application installer. Optional. -->
+  <description>a simple kiosk application.</description>
+
+  <!-- Settings for the application's initial window. Required. -->
+  <initialWindow>
+    <!-- The main HTML file of the application. Required. -->
+    <content>spec/runner.html</content>
+    
+    <!-- The title of the main window. Optional. -->
+    <title>Kiosk</title>
+
+    <!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
+    <systemChrome>none</systemChrome>
+    
+    <!-- Whether the window is initially visible. Optional. Default false. -->
+    <visible>true</visible>
+
+    <!-- Whether the user can minimize the window. Optional. Default true. -->
+    <minimizable>false</minimizable>
+
+    <!-- Whether the user can maximize the window. Optional. Default true. -->
+    <maximizable>false</maximizable>
+
+    <!-- Whether the user can resize the window. Optional. Default true. -->
+    <resizable>false</resizable>
+
+    <!-- The window's initial width. Optional. -->
+    <width>1280</width>
+
+    <!-- The window's initial height. Optional. -->
+    <height>1024</height>
+
+    <!-- The window's initial x position. Optional.  -->
+    <x>100</x>
+
+    <!-- The window's initial y position. Optional. -->
+    <y>50</y>
+
+    <!-- The window's minimum size, specified as a width/height pair, such as "400 200". Optional. -->
+    <minSize>1280 1024</minSize>
+
+    <!-- The window's initial maximum size, specified as a width/height pair, such as "1600 1200". Optional. -->
+    <maxSize>1280 1024</maxSize>
+  
+  </initialWindow>
+</application>
